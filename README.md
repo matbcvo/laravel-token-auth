@@ -16,9 +16,17 @@ Install the package via Composer:
 composer require matbcvo/laravel-token-auth
 ```
 
+### Publish migrations
+
+Publish the migration files to your application's `database/migrations` directory:
+
+```bash
+php artisan vendor:publish --provider="Matbcvo\LaravelTokenAuth\LaravelTokenAuthServiceProvider" --tag=migrations
+```
+
 ### Run migrations
 
-To create the `api_tokens` table in your database:
+Run the migrations to create the `api_tokens` table in your database:
 
 ```bash
 php artisan migrate

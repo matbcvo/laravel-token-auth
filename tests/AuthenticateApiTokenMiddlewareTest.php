@@ -23,10 +23,10 @@ class AuthenticateApiTokenMiddlewareTest extends TestCase
     public function it_denies_access_with_invalid_token()
     {
         $response = $this->withHeader('Authorization', 'Bearer invalid-token')
-                         ->get('/protected-route');
+            ->get('/protected-route');
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
-                 ->assertJson(['error' => 'Unauthorized']);
+            ->assertJson(['error' => 'Unauthorized']);
     }
 
     #[\PHPUnit\Framework\Attributes\Test]
@@ -41,10 +41,10 @@ class AuthenticateApiTokenMiddlewareTest extends TestCase
 
         // Send request with the valid token
         $response = $this->withHeader('Authorization', 'Bearer valid-token')
-                         ->get('/protected-route');
+            ->get('/protected-route');
 
         $response->assertStatus(Response::HTTP_OK)
-                 ->assertJson(['message' => 'Access granted']);
+            ->assertJson(['message' => 'Access granted']);
     }
 
     #[\PHPUnit\Framework\Attributes\Test]
@@ -58,9 +58,9 @@ class AuthenticateApiTokenMiddlewareTest extends TestCase
         ]);
 
         $response = $this->withHeader('Authorization', 'Bearer expired-token')
-                         ->get('/protected-route');
+            ->get('/protected-route');
 
         $response->assertStatus(Response::HTTP_UNAUTHORIZED)
-                 ->assertJson(['error' => 'Unauthorized']);
+            ->assertJson(['error' => 'Unauthorized']);
     }
 }

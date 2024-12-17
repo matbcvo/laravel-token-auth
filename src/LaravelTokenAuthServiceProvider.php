@@ -18,17 +18,24 @@ class LaravelTokenAuthServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../config/laravel-token-auth.php' => config_path('laravel-token-auth.php'),
-        ], 'laravel-token-auth-config');
+        $this->offerPublishing();
 
         $this->registerMiddleware();
 
         $this->registerCommands();
+    }
 
-        $this->publishesMigrations([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ]);
+    protected function offerPublishing(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/laravel-token-auth.php' => config_path('laravel-token-auth.php'),
+            ], 'config');
+
+            $this->publishes([
+                __DIR__.'/../database/migrations' => database_path('migrations'),
+            ], 'migrations');
+        }
     }
 
     protected function registerMiddleware(): void
