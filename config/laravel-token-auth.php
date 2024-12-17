@@ -10,14 +10,4 @@ return [
     |
     */
     'token_length' => 60,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Token Expiration
-    |--------------------------------------------------------------------------
-    |
-    | Set a default token expiration time in minutes. Use null for no expiration.
-    |
-    */
-    'default_expiration' => null,
 ];
