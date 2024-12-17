@@ -20,7 +20,7 @@ class LaravelTokenAuthServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/laravel-token-auth.php' => config_path('laravel-token-auth.php'),
-        ], 'config');
+        ], 'laravel-token-auth-config');
 
         $this->registerMiddleware();
 
