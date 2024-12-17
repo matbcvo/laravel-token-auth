@@ -75,7 +75,7 @@ You’ll be asked to confirm before deletion.
 The package provides a configuration file to customize its behavior. To publish the configuration file, run:
 
 ```bash
-php artisan vendor:publish --tag=laravel-token-auth-config
+php artisan vendor:publish --provider="Matbcvo\LaravelTokenAuth\LaravelTokenAuthServiceProvider" --tag=config
 ```
 
 ### Available configuration options
