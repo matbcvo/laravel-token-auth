@@ -32,6 +32,39 @@ Run the migrations to create the `api_tokens` table in your database:
 php artisan migrate
 ```
 
+## Middleware
+
+To secure your routes using the provided middleware, you can authenticate API requests based on a token.
+
+### Apply middleware to API routes
+
+You can use the middleware class directly for explicit clarity:
+
+```php
+use Illuminate\Support\Facades\Route;
+use Matbcvo\LaravelTokenAuth\Http\Middleware\AuthenticateApiToken;
+
+Route::middleware([AuthenticateApiToken::class])->group(function() {
+    Route::get('/protected-route', function () {
+        return response()->json(['message' => 'You have access to this route!']);
+    });
+});
+```
+
+### Using the middleware alias
+
+For convenience, the package registers a middleware alias `auth.token`. You can use this alias as a shortcut:
+
+```php
+use Illuminate\Support\Facades\Route;
+
+Route::middleware(['auth.token'])->group(function () {
+    Route::get('/protected-route', function () {
+        return response()->json(['message' => 'You have access to this route!']);
+    });
+});
+```
+
 ## Commands
 
 This package provides the following Artisan commands:
