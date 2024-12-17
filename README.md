@@ -1,6 +1,6 @@
 # Laravel Token Auth
 
-A simple Laravel package to manage API tokens using Artisan commands.
+A lightweight package that simplifies API token management in your Laravel applications. It provides artisan commands and middleware support to create, manage, and authenticate API tokens efficiently.
 
 ## Features
 
