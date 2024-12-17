@@ -7,6 +7,7 @@ A lightweight package that simplifies API token management in your Laravel appli
 - Create API tokens: Generate and store new API tokens.
 - List API tokens: View existing tokens with their details.
 - Delete API tokens: Remove existing tokens with confirmation prompts.
+- Middleware integration: Secure your API routes with a simple token-based authentication middleware.
 
 ## Installation
 
