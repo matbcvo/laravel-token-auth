@@ -19,7 +19,7 @@ class CreateApiToken extends Command
         $expires = $this->option('expires') ? now()->addMinutes((int) $this->option('expires')) : null;
 
         // Retrieve the token length from the configuration
-        $tokenLength = is_numeric(Config::get('laravel-token-auth.token_length')) ? (int) Config::get('laravel-token-auth.token_length') : 60; // Default to 60 if not set
+        $tokenLength = is_numeric(Config::get('token-auth.token_length')) ? (int) Config::get('token-auth.token_length') : 60; // Default to 60 if not set
 
         $token = ApiToken::create([
             'name' => $name,

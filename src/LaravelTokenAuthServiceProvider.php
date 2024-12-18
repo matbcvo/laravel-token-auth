@@ -13,7 +13,7 @@ class LaravelTokenAuthServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/laravel-token-auth.php', 'laravel-token-auth');
+        $this->mergeConfigFrom(__DIR__.'/../config/token-auth.php', 'token-auth');
     }
 
     public function boot(): void
@@ -29,7 +29,7 @@ class LaravelTokenAuthServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/laravel-token-auth.php' => config_path('laravel-token-auth.php'),
+                __DIR__.'/../config/token-auth.php' => config_path('token-auth.php'),
             ], 'config');
 
             $this->publishes([
